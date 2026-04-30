@@ -1,0 +1,10 @@
+program     -> stmt_list
+stmt_list   -> stmt stmt_list | epsilon
+stmt        -> decl_assign | assign | if_stmt | expr
+decl_assign -> TYPE ID = expr
+assign      -> ID = expr
+if_stmt     -> if ( expr ) : INDENT stmt_list DEDENT
+expr        -> expr + term | expr - term | term
+term        -> term * factor | term / factor | factor
+factor      -> ( expr ) | - factor | ID | NUM | FLOAT
+TYPE        -> int | float
